@@ -1,5 +1,5 @@
 import { Badge } from "@material-ui/core";
-import { Search, ShoppingCartOutlined } from "@material-ui/icons";
+import { Search, ShoppingCartOutlined, ViewColumnTwoTone } from "@material-ui/icons";
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -10,13 +10,29 @@ import { logOut } from "../redux/userRedux";
 import { useDispatch } from "react-redux";
 import { publicRequest } from "../requestMethods";
 import { emptyCart, removeId } from "../redux/cartRedux";
-
+import { setFlash } from "../redux/flashRedux";
+import Announcement from "./Announcement";
 
 const Container = styled.div`
-  height: 60px;
-  margin-bottom: 20px;
+  height: 95px;
+  margin-bottom: 0px;
   background-color: #eef8f9;
-  ${mobile({ height: "50px" })}
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  ${mobile({ height: "150px" })}
+`;
+
+
+const White = styled.div`
+  height: 12px;
+  background-color: white;
+  color: white;
+  display: contain;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
 `;
 
 const Wrapper = styled.div`
@@ -24,13 +40,17 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  ${mobile({ padding: "10px 0px" })}
+  ${mobile({
+  padding: "10px 0px",
+  display: "block",
+})}
 `;
 
 const Left = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
+  justify-content: center;
 `;
 
 const Language = styled.span`
@@ -55,6 +75,7 @@ const Input = styled.input`
 const Center = styled.div`
   flex: 1;
   text-align: center;
+  ${mobile({ margin: "10px" })}
 `;
 
 const Logo = styled.h1`
@@ -65,7 +86,7 @@ const Right = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   ${mobile({ flex: 2, justifyContent: "center" })}
 `;
 
@@ -75,8 +96,6 @@ const MenuItem = styled.div`
   margin-left: 25px;
   ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `;
-
-
 
 const Navbar = () => {
   const cart = useSelector(state => state.cart)
@@ -88,6 +107,7 @@ const Navbar = () => {
     dispatch(logOut())
     dispatch(emptyCart())
     dispatch(removeId())
+    dispatch(setFlash('Signed out successfully... Cart is saved'))
     history.push('/')
   }
 
@@ -114,6 +134,7 @@ const Navbar = () => {
 
   return (
     <Container>
+      <Announcement />
       <Wrapper>
         <Left>
           <Link to={'/products/mouse'}><MenuItem>MOUSE</MenuItem></Link>
@@ -123,7 +144,7 @@ const Navbar = () => {
           <Link to={'/products/headphone'}><MenuItem>HEADPHONE</MenuItem></Link>
         </Left>
         <Center onClick={() => { history.push('/') }}>
-          <Logo>CYBERSHOP</Logo>
+          <Logo>SHOPCYBER</Logo>
         </Center>
         <Right>
           {user.isLoggedIn ? <Link to={'/user'}><MenuItem>ORDER HISTORY</MenuItem></Link> : <Link to={'/register'}><MenuItem>REGISTER</MenuItem></Link>}
@@ -139,6 +160,8 @@ const Navbar = () => {
           </Link>
         </Right>
       </Wrapper>
+      <White />
+
     </Container>
   );
 };

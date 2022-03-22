@@ -9,6 +9,7 @@ import { loginSuccess, usernameError, emailError } from "../redux/userRedux";
 import { login } from "../redux/apiCalls";
 import { emptyCart, } from "../redux/cartRedux";
 import { Link } from "react-router-dom";
+import { setFlash } from "../redux/flashRedux";
 
 
 
@@ -153,6 +154,7 @@ const Register = () => {
         });
         dispatch(emptyCart())
         login(dispatch, { username, password });
+        dispatch(setFlash(`Successfully registered! Welcome, ${username}!`))
         history.push('/')
       } catch (err) {
         const res = err.response.data.keyPattern;

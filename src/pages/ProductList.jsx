@@ -60,7 +60,7 @@ const ProductList = () => {
 
   return (
     <Container2>
-      <Announcement />
+
       <Navbar />
       <Container>
         <Title>Category : {cat}</Title>

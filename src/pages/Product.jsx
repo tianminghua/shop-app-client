@@ -156,7 +156,6 @@ const Product = () => {
 
   return (
     <Container2>
-      <Announcement />
       <Navbar />
       <Wrapper>
         <Container>

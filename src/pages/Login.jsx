@@ -7,6 +7,7 @@ import { useHistory } from "react-router-dom";
 import { publicRequest } from "../requestMethods";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { setFlash } from "../redux/flashRedux";
 
 
 
@@ -109,6 +110,7 @@ const Login = () => {
       setPasswordWarning('please try again')
     }
     if (user.isLoggedIn) {
+      dispatch(setFlash(`Welcome back, ${user.currentUser.username}!`))
       history.push('/')
     }
   }, [user])

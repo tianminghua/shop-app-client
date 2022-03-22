@@ -154,7 +154,7 @@ const Summary = styled.div`
   border: 0.5px solid lightgray;
   border-radius: 10px;
   padding: 20px;
-  height: 42vh;
+  height: 45vh;
 `;
 
 const SummaryTitle = styled.h1`
@@ -227,7 +227,6 @@ const Cart = () => {
 
   return (
     <Container2>
-      <Announcement />
       <Navbar />
       <Container>
         <Wrapper>

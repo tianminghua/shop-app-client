@@ -94,12 +94,23 @@ const User = () => {
 
     return (
         <Container2>
-            <Announcement />
             <Navbar />
             <Container>
                 <Header as='h2' textAlign='center' margintop='20px'>
                     Order History
                 </Header>
+                <Card fluid>
+                    <Card.Content header='User Information' />
+                    <Card.Content >
+                        Username: {user.currentUser.username}
+                    </Card.Content>
+                    <Card.Content >
+                        Creation Date: {user.currentUser.createdAt.split('T')[0]}
+                    </Card.Content>
+                    <Card.Content >
+                        Email: {user.currentUser.email}
+                    </Card.Content>
+                </Card>
                 <Grid celled >
 
                     <Grid.Column width={11}>
@@ -142,21 +153,9 @@ const User = () => {
                             ))}
                         </Item.Group>
                     </Grid.Column>
-                    <Grid.Column width={5}>
-                        <Card fluid>
-                            <Card.Content header='User Information' />
-                            <Card.Content >
-                                Username: {user.currentUser.username}
-                            </Card.Content>
-                            <Card.Content >
-                                Creation Date: {user.currentUser.createdAt.split('T')[0]}
-                            </Card.Content>
-                            <Card.Content >
-                                Email: {user.currentUser.email}
-                            </Card.Content>
-                        </Card>
-                    </Grid.Column>
+
                 </Grid>
+
                 <Newsletter />
             </Container>
 

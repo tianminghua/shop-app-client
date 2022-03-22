@@ -2,6 +2,7 @@ import React from "react";
 import Announcement from "../components/Announcement";
 import Categories from "../components/Categories";
 import Footer from "../components/Footer";
+import Flash from "../components/Flash";
 import Navbar from "../components/Navbar";
 import Newsletter from "../components/Newsletter";
 import Products from "../components/Products";
@@ -15,7 +16,7 @@ import CategoryItemshort from "../components/CategoryItemshort";
 const Home = () => {
   return (
     <div>
-      <Announcement />
+      <Flash />
       <Navbar />
       <Container>
         {/* <Slider /> */}

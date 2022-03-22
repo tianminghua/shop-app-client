@@ -9,13 +9,14 @@ import {
 } from "@material-ui/icons";
 import styled from "styled-components";
 import { mobile } from "../responsive";
-import { Container, Grid } from "semantic-ui-react";
+import { Grid } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
-// const Container = styled.div`
-//   display: flex;
-//   ${mobile({ flexDirection: "column" })}
-// `;
+const Container = styled.div`
+  display: flex;
+  padding-left: 40px;
+  ${mobile({ display: "none" })}
+`;
 
 const Left = styled.div`
   flex: 1;
@@ -92,7 +93,7 @@ const Footer = () => {
     <Container>
       <Grid>
         <Grid.Column width={7}>
-          <Logo>CYBERSHOP</Logo>
+          <Logo>SHOPCYBER</Logo>
           <Desc>
             Practice E-commerce web app built with MERN Stack.
             Using React and Redux to create an instant response frontend web page.

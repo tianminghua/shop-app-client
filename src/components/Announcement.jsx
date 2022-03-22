@@ -12,7 +12,9 @@ const Container = styled.div`
 `;
 
 const Announcement = () => {
-  return <Container>Limited Time Deal !  Free Shipping on Orders Over $50</Container>;
+  return (
+    <Container>Limited Time Deal !  Free Shipping on Orders Over $50</Container>
+  )
 };
 
 export default Announcement;
